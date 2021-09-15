@@ -21,6 +21,7 @@
             <th scope="col">Codice</th>
             <th scope="col">Titolo</th>
             <th scope="col">Azioni</th>
+            <th scope="col">Categoria</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,12 @@
             <tr>
                 <th scope="row">{{ $post->id }} </th>
                 <td>{{ $post->title }}</td>
+                <th scope="col">Categoria</th>
+                <td>
+                    @if ($post->category)
+		                {{$post->category->name}}
+                    @endif
+                </td>
                 <td>
                     <a href="{{route('admin.posts.show', $post->slug)}}" class="btn btn-primary">Show</a>
                     <a href="{{route('admin.posts.edit', $post->id)}} " class="btn btn-success">Edit</a>
